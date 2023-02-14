@@ -1,17 +1,75 @@
-img {
-  width: 200px;
-  height: 200px;
-}
-#streets_sprite {
-  width: 1500px;
-  height: 750px;
-  /*Transform: scale forstørre et billede. tager 1 eller to parametre*/
-  /* transform: scale(1.3); */
+#screen {
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }
 
+#streets_sprite {
+  width: 100%;
+}
+
+/* turtle pic */
+#turtle_container {
+  width: 10%;
+  position: absolute;
+  top: 69%;
+  left: 80%;
+}
+#turtle_sprite {
+  width: 100%;
+}
+
+/* Pizza pics */
+
+/*Pizza 1 */
 #pizza1_container {
-  /* roterer x antal grader*/
-  transform: rotate(45deg);
-  /* translate flytter et element på siden. 1. parameter = x aksen, 2. parameter = y aksen) */
-  transform: translate(300px, -40px);
+  width: 10%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+#pizza1_sprite {
+  width: 100%;
+  rotate: 30deg;
+}
+
+/* Pizza 2 */
+#pizza3_container {
+  width: 13%;
+  position: absolute;
+  top: 23%;
+  left: 32%;
+}
+#pizza3_sprite {
+  width: 100%;
+}
+
+/* Pizza 3 */
+
+#pizza5_container {
+  width: 10%;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+}
+#pizza5_sprite {
+  width: 100%;
+  rotate: -60deg;
+}
+
+/* Broccoli pic */
+
+#broccoli_container {
+  width: 10%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#broccoli_sprite {
+  width: 100%;
+}
+
+/* Background */
+#game_background {
+  background-image: url(images/City\ street\ at\ night.jpg);
+  background-size: cover;
 }
