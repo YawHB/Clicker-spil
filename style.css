@@ -28,11 +28,14 @@ body {
 #turtle_container {
   width: 10%;
   position: absolute;
-  top: 69%;
+  top: 9%;
   left: 80%;
 }
 #turtle_sprite {
   width: 100%;
+}
+
+@keyframes turtle {
 }
 
 /* @keyframes scaleIn {
@@ -149,7 +152,7 @@ body {
 }
 
 @keyframes broccoli {
-  to {
+  0% {
     transform: rotate(40deg);
   }
   from {
