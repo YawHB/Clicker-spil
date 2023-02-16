@@ -7,7 +7,9 @@
   aspect-ratio: 16 / 9;
   width: 100%;
 }
-
+body {
+  margin: 0px;
+}
 #game {
   grid-area: 1/1;
   background-color: black;
@@ -33,7 +35,7 @@
   width: 100%;
 }
 
-@keyframes scaleIn {
+/* @keyframes scaleIn {
   0% {
     transform: scale(0.01);
   }
@@ -43,62 +45,116 @@
   100% {
     transform: scale(1);
   }
-}
+} */
 
-h2 {
-  font-size: 10rem;
-  font-family: "Fira sans", sans-serif;
-  color: #dcf2b0;
-  text-shadow: 3px 3px 0px #59c3c3;
-  animation-name: scaleIn;
-  animation-duration: 1.3s;
-}
 /* Pizza pics */
 
 /*Pizza 1 */
 #pizza1_container {
+  animation: pizza1 5s infinite;
   width: 10%;
   position: absolute;
-  top: 10%;
-  left: 10%;
-  transform: scale(2) translate(200%, 100%) rotate(45deg);
+  /* top: 50%;
+  left: -10%; */
 }
+
 #pizza1_sprite {
   width: 100%;
   rotate: 30deg;
 }
 
-/* Pizza 2 */
+/* Pizza1 Falling streight down and rotates */
+
+@keyframes pizza1 {
+  0% {
+    transform: translate(200%, -700%);
+  }
+
+  100% {
+    transform: translate(200%, -80%) rotate(600deg);
+  }
+}
+
+/* Pizza 3 */
 #pizza3_container {
-  width: 13%;
+  animation-name: pizza3;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  width: 10%;
   position: absolute;
   top: 23%;
   left: 32%;
 }
+
 #pizza3_sprite {
   width: 100%;
 }
 
-/* Pizza 3 */
+@keyframes pizza3 {
+  0% {
+    transform: translate(500%, -700%);
+  }
+  50% {
+    transform: translate(250%, 0%);
+  }
+
+  100% {
+    transform: translate(500%, 290%);
+  }
+}
 
 #pizza5_container {
+  animation: pizza5 3s infinite;
   width: 10%;
   position: absolute;
-  top: 30%;
-  left: 60%;
+  /* top: -90%;
+  left: -60%; */
 }
 #pizza5_sprite {
   width: 100%;
   rotate: -60deg;
 }
 
+@keyframes pizza5 {
+  0% {
+    transform: translate(300%, -700%);
+  }
+
+  25% {
+    transform: translate(200%, -494%);
+  }
+
+  50% {
+    transform: translate(400%, -288%);
+  }
+
+  50% {
+    transform: translate(400%, -288%);
+  }
+
+  100% {
+    transform: translate(300%, -80%);
+  }
+}
+
 /* Broccoli pic */
 
 #broccoli_container {
+  animation: broccoli 4s infinite;
+
   width: 10%;
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+@keyframes broccoli {
+  to {
+    transform: rotate(40deg);
+  }
+  from {
+    transform: rotate(80deg);
+  }
 }
 #broccoli_sprite {
   width: 100%;
