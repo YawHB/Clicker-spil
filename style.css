@@ -60,7 +60,7 @@ img {
 
 /*Pizza 1 */
 #pizza1_container {
-  animation: pizza1 5s infinite;
+  animation: pizza1 10s infinite;
   width: 10%;
   position: absolute;
   /* top: 50%;
@@ -87,8 +87,10 @@ img {
 /* Pizza 3 */
 #pizza3_container {
   animation-name: pizza3;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
   width: 10%;
   position: absolute;
   top: 23%;
@@ -99,6 +101,8 @@ img {
   width: 100%;
 }
 
+/* Pizza3 Falling zigzac down*/
+
 @keyframes pizza3 {
   0% {
     transform: translate(500%, -700%);
@@ -108,12 +112,13 @@ img {
   }
 
   100% {
-    transform: translate(500%, 290%);
+    transform: translate(500%, 370%);
   }
 }
 
 #pizza5_container {
   animation: pizza5 3s infinite;
+  animation-timing-function: linear;
   width: 10%;
   position: absolute;
   /* top: -90%;
@@ -150,19 +155,21 @@ img {
 
 #broccoli_container {
   animation: broccoli 4s infinite;
+  animation-timing-function: linear;
 
   width: 10%;
   position: absolute;
-  top: 50%;
-  left: 50%;
 }
 
 @keyframes broccoli {
   0% {
-    transform: rotate(40deg);
+    transform: translate(310%, -700%) rotate(0deg);
   }
-  from {
-    transform: rotate(80deg);
+  50% {
+    transform: translate(400%, -288%) rotate(90deg);
+  }
+  100% {
+    transform: translate(300%, -80%) rotate(180deg);
   }
 }
 #broccoli_sprite {
