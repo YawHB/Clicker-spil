@@ -7,18 +7,17 @@
   aspect-ratio: 16 / 9;
   width: 100%;
 }
+
 body {
   margin: 0;
   overflow: hidden;
 }
-
 img {
   width: 100%;
 }
 
 #game {
   grid-area: 1/1;
-  background-color: black;
   overflow: hidden;
   /* create a grid with only one cell */
 
@@ -26,158 +25,111 @@ img {
   grid-template-columns: 10% / 10%;
   grid-template-rows: 100%;
 }
-#streets_sprite {
-  width: 100%;
+
+#game_background {
+  background-image: url(./images/City\ street\ at\ night.jpg);
+  background-size: cover;
+  grid-area: 1/1;
 }
 
-/* turtle pic */
-#turtle_container {
-  width: 10%;
+#game_elements {
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* spil elementer */
+
+#pizza1a_container {
+  width: 8%;
   position: absolute;
-  top: 48%;
-  left: 80%;
+  top: 0;
+  left: 10vw;
 }
-#turtle_sprite {
+
+#pizza1a_sprite {
   width: 100%;
 }
 
-@keyframes turtle {
-}
-
-/* @keyframes scaleIn {
-  0% {
-    transform: scale(0.01);
-  }
-  85% {
-    transform: scale(2.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-} */
-
-/* Pizza pics */
-
-/*Pizza 1 */
-#pizza1_container {
-  animation: pizza1 10s infinite;
-  width: 10%;
+#pizza1b_container {
+  width: 8%;
   position: absolute;
-  /* top: 50%;
-  left: -10%; */
+  top: 0;
+  left: 55vw;
 }
 
-#pizza1_sprite {
+#pizza1b_sprite {
   width: 100%;
-  rotate: 30deg;
 }
-
-/* Pizza1 Falling streight down and rotates */
-
-@keyframes pizza1 {
-  0% {
-    transform: translate(200%, -700%);
-  }
-
-  100% {
-    transform: translate(200%, -80%) rotate(600deg);
-  }
-}
-
-/* Pizza 3 */
-#pizza3_container {
-  animation-name: pizza3;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
-  width: 10%;
+#pizza1c_container {
+  width: 8%;
   position: absolute;
-  top: 23%;
-  left: 32%;
+  top: 0;
+  left: 80vw;
 }
 
-#pizza3_sprite {
+#pizza1c_sprite {
   width: 100%;
 }
 
-/* Pizza3 Falling zigzac down*/
-
-@keyframes pizza3 {
-  0% {
-    transform: translate(500%, -700%);
-  }
-  50% {
-    transform: translate(250%, 0%);
-  }
-
-  100% {
-    transform: translate(500%, 370%);
-  }
+#pizza3a_container {
+  width: 8%;
+  position: absolute;
+  top: 0;
+  left: 25vw;
 }
 
+#pizza3a_sprite {
+  width: 100%;
+}
+
+#pizza3b_container {
+  width: 8%;
+  position: absolute;
+  top: 0;
+  left: 70vw;
+}
+
+#pizza3b_sprite {
+  width: 100%;
+}
 #pizza5_container {
-  animation: pizza5 3s infinite;
-  animation-timing-function: linear;
-  width: 10%;
+  width: 8%;
   position: absolute;
-  /* top: -90%;
-  left: -60%; */
+  top: 0;
+  left: 40vw;
 }
+
 #pizza5_sprite {
   width: 100%;
-  rotate: -60deg;
 }
 
-@keyframes pizza5 {
-  0% {
-    transform: translate(300%, -700%);
-  }
-
-  25% {
-    transform: translate(200%, -494%);
-  }
-
-  50% {
-    transform: translate(400%, -288%);
-  }
-
-  50% {
-    transform: translate(400%, -288%);
-  }
-
-  100% {
-    transform: translate(300%, -80%);
-  }
-}
-
-/* Broccoli pic */
-
-#broccoli_container {
-  animation: broccoli 4s infinite;
-  animation-timing-function: linear;
-
-  width: 10%;
+#broccoli1_container {
+  width: 8%;
   position: absolute;
+  top: 0;
+  left: 60vw;
 }
-
-@keyframes broccoli {
-  0% {
-    transform: translate(310%, -700%) rotate(0deg);
-  }
-  50% {
-    transform: translate(400%, -288%) rotate(90deg);
-  }
-  100% {
-    transform: translate(300%, -80%) rotate(180deg);
-  }
-}
-#broccoli_sprite {
+#broccoli1_sprite {
   width: 100%;
 }
 
-/* Background */
-#game_background {
-  background-image: url(images/City\ street\ at\ night.jpg);
-  background-size: cover;
+#broccoli2_container {
+  width: 8%;
+  position: absolute;
+  top: 0;
+  left: 60vw;
+}
+#broccoli2_sprite {
+  width: 100%;
+}
+
+#broccoli3_container {
+  width: 8%;
+  position: absolute;
+  top: 0;
+  left: 60vw;
+}
+#broccoli3_sprite {
+  width: 100%;
 }

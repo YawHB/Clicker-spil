@@ -1,0 +1,153 @@
+/* Animations */
+
+.falling {
+  animation: falling;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes falling {
+  0% {
+    transform: translateY(-100%) scale(0.8);
+    filter: drop-shadow(0px 0px 0px rgb(216, 216, 32));
+  }
+  12.5% {
+    transform: translateY(-12.5%) scale(1);
+    filter: drop-shadow(0px 0px 25px rgb(216, 216, 32));
+  }
+  25% {
+    transform: translateY(75%) scale(0.8);
+    filter: drop-shadow(0px 0px 0px rgb(216, 216, 32));
+  }
+  37.5% {
+    transform: translateY(162.5%) scale(1);
+    filter: drop-shadow(0px 0px 25px rgb(216, 216, 32));
+  }
+  50% {
+    transform: translateY(250%) scale(0.8);
+    filter: drop-shadow(0px 0px 0px rgb(216, 216, 32));
+  }
+  62.5% {
+    transform: translateY(337.5%) scale(1);
+    filter: drop-shadow(0px 0px 25px rgb(216, 216, 32));
+  }
+  75.5% {
+    transform: translateY(425%) scale(0.8);
+    filter: drop-shadow(0px 0px 0px rgb(216, 216, 32));
+  }
+  87.5% {
+    transform: translateY(512.5%) scale(1);
+    filter: drop-shadow(0px 0px 25px rgb(216, 216, 32));
+  }
+  100% {
+    transform: translateY(600%) scale(0.8);
+    filter: drop-shadow(0px 0px 0px rgb(216, 216, 32));
+  }
+}
+
+.zoom_out {
+  animation: zoom_out;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(0.1) rotate(1500deg);
+  }
+}
+
+.shake {
+  animation: shake;
+  animation-duration: 20ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+  0% {
+    transform: rotate(0deg);
+    opacity: 100;
+  }
+
+  20% {
+    transform: rotate(200deg);
+  }
+
+  100% {
+    transform: rotate(-1500deg);
+    opacity: 0;
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.fly_out {
+  animation-name: fly_out;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+}
+
+@keyframes fly_out {
+  0% {
+    transform: translate(0%, 30%);
+  }
+  100% {
+    transform: translate(-450px, -950px);
+  }
+}
+
+.blow_up {
+  animation-name: blow_up;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+/* @keyframes blow_up {
+  0% {
+    opacity: 100;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(8);
+  }
+} */
+
+@keyframes blow_up {
+  0% {
+    transform: rotate(0deg) translate(0%) scale(1);
+  }
+  100% {
+    transform: rotate(-200deg) translate(-350%) scale(0);
+  }
+}
