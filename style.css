@@ -38,6 +38,15 @@ img {
   overflow: hidden;
 }
 
+#turtle_container {
+  width: 8%;
+  position: absolute;
+  top: 82%;
+  left: 90%;
+}
+#turtle_sprite {
+  width: 100%;
+}
 /* spil elementer */
 
 #pizza1a_container {
@@ -118,7 +127,7 @@ img {
   width: 8%;
   position: absolute;
   top: 0;
-  left: 60vw;
+  left: 30vw;
 }
 #broccoli2_sprite {
   width: 100%;
@@ -131,5 +140,18 @@ img {
   left: 60vw;
 }
 #broccoli3_sprite {
+  width: 100%;
+}
+
+/* GUI */
+
+#time_board {
+  width: 10%;
+  position: absolute;
+  top: 5%;
+  left: 90vw;
+}
+
+#time {
   width: 100%;
 }
