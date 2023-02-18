@@ -116,8 +116,8 @@ img {
 #broccoli1_container {
   width: 8%;
   position: absolute;
-  top: 0;
-  left: 60vw;
+  top: -6vw;
+  left: 10vw;
 }
 #broccoli1_sprite {
   width: 100%;
@@ -126,8 +126,8 @@ img {
 #broccoli2_container {
   width: 8%;
   position: absolute;
-  top: 0;
-  left: 30vw;
+  top: -15vw;
+  left: 100vw;
 }
 #broccoli2_sprite {
   width: 100%;
@@ -136,8 +136,8 @@ img {
 #broccoli3_container {
   width: 8%;
   position: absolute;
-  top: 0;
-  left: 60vw;
+  top: 4vw;
+  left: 1vw;
 }
 #broccoli3_sprite {
   width: 100%;
@@ -145,13 +145,16 @@ img {
 
 /* GUI */
 
-#time_board {
+#time {
   width: 10%;
   position: absolute;
   top: 5%;
   left: 90vw;
 }
 
-#time {
-  width: 100%;
+#lives {
+  width: 10%;
+  position: absolute;
+  top: 15%;
+  left: 90vw;
 }
