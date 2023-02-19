@@ -155,10 +155,6 @@
   }
 }
 
-.paused {
-  animation-play-state: paused;
-}
-
 .fly_out {
   animation-name: fly_out;
   animation-duration: 1s;
@@ -189,4 +185,29 @@
   100% {
     transform: rotate(-200deg) translate(-350%) scale(0);
   }
+}
+
+.points_added {
+  animation-name: points_added;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+@keyframes points_added {
+  0% {
+    transfrom: scale(1) translate(0%, 0%);
+  }
+  100% {
+    transform: scale(10) translate(100px, -1200%);
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+/* The hidden class will be used for my coins */
+.hidden {
+  display: none;
 }

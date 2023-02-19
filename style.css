@@ -50,6 +50,8 @@ img {
 
 /* /////////// spil elementer /////////// */
 
+/****************** Pizza 1 elements *********************/
+
 #pizza1a_container {
   width: 8%;
   position: absolute;
@@ -71,6 +73,7 @@ img {
 #pizza1b_sprite {
   width: 100%;
 }
+
 #pizza1c_container {
   width: 8%;
   position: absolute;
@@ -81,6 +84,8 @@ img {
 #pizza1c_sprite {
   width: 100%;
 }
+
+/****************** Pizza 3 elements *********************/
 
 #pizza3a_container {
   width: 8%;
@@ -103,6 +108,9 @@ img {
 #pizza3b_sprite {
   width: 100%;
 }
+
+/****************** Pizza 5 elements *********************/
+
 #pizza5_container {
   width: 8%;
   position: absolute;
@@ -113,6 +121,8 @@ img {
 #pizza5_sprite {
   width: 100%;
 }
+
+/****************** Broccoli elements *********************/
 
 #broccoli1_container {
   width: 8%;
@@ -142,6 +152,49 @@ img {
 }
 #broccoli3_sprite {
   width: 100%;
+}
+
+/******************  Point(s) elements *********************/
+
+#point_1a {
+  width: 30%;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
+}
+
+#point_1b {
+  width: 30%;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
+}
+
+#point_1c {
+  width: 30%;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
+}
+
+#points_3a {
+  width: 30%;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
+}
+
+#points_3b {
+  width: 30%;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
+}
+#points_5 {
+  width: 30%;
+  position: absolute;
+  top: 1vw;
+  left: 3vw;
 }
 
 /*///////////////// GUI /////////////////*/
