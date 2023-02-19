@@ -175,14 +175,14 @@
   }
 }
 
-.blow_up {
-  animation-name: blow_up;
+.deflate_broccoli {
+  animation-name: deflate_broccoli;
   animation-duration: 3s;
   animation-timing-function: linear;
   animation-iteration-count: 1;
 }
 
-@keyframes blow_up {
+@keyframes deflate_broccoli {
   0% {
     transform: rotate(0deg) translate(0%) scale(1);
   }
