@@ -48,3 +48,7 @@ function fadeOut() {
   p3a_container.classList.add("paused");
   p3a_sprite.classList.add("fade");
 }
+
+/*
+RELEVANT EVENTS 
+click, animationend, animationiteration, dbclick, mousedown, contentmenu */
