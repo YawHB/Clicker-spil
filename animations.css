@@ -49,13 +49,30 @@
 
 .broccoli1_danger {
   animation-name: broccoli1_danger;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-direction: alternate;
 }
 
 @keyframes broccoli1_danger {
+  0% {
+    transform: rotate(-50deg) translate(900%, 400%) scale(0.7);
+  }
+  100% {
+    transform: rotate(0deg) translate(-900%, 500%) scale(2.5);
+  }
+}
+
+.broccoli3_danger {
+  animation-name: broccoli3_danger;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes broccoli3_danger {
   0% {
     transform: rotate(0deg) translate(-300%, 400%) scale(2.5);
   }
@@ -78,23 +95,6 @@
   }
   100% {
     transform: rotate(-30deg) translate(-1100%, 400%) scale(2.5);
-  }
-}
-
-.broccoli3_danger {
-  animation-name: broccoli3_danger;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-direction: alternate;
-}
-
-@keyframes broccoli3_danger {
-  0% {
-    transform: rotate(-50deg) translate(900%, 400%) scale(0.7);
-  }
-  100% {
-    transform: rotate(0deg) translate(-900%, 500%) scale(2.5);
   }
 }
 
