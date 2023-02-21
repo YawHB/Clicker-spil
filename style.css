@@ -212,3 +212,14 @@ img {
   top: 15%;
   left: 90vw;
 }
+
+#score_board {
+  width: 10%;
+  position: absolute;
+  top: 20%;
+  left: 95vw;
+  background-color: rgb(21, 198, 124);
+  padding-left: 1%;
+  padding-right: 6%;
+  border-right: 5%;
+}
