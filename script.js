@@ -31,34 +31,34 @@ function start() {
   /* Pizza */
   document
     .querySelector("#pizza1a_container")
-    .addEventListener("click", clickP1a);
+    .addEventListener("mousedown", clickP1a);
   document
     .querySelector("#pizza1b_container")
-    .addEventListener("click", clickP1b);
+    .addEventListener("mousedown", clickP1b);
   document
     .querySelector("#pizza1c_container")
-    .addEventListener("click", clickP1c);
+    .addEventListener("mousedown", clickP1c);
   document
     .querySelector("#pizza3a_container")
-    .addEventListener("click", clickP3a);
+    .addEventListener("mousedown", clickP3a);
   document
     .querySelector("#pizza3b_container")
-    .addEventListener("click", clickP3b);
+    .addEventListener("mousedown", clickP3b);
   document
     .querySelector("#pizza5_container")
-    .addEventListener("click", clickP5);
+    .addEventListener("mousedown", clickP5);
 }
 
 /* Broccoli */
 document
   .querySelector("#broccoli1_container")
-  .addEventListener("click", clickBroccoli1);
+  .addEventListener("mousedown", clickBroccoli1);
 document
   .querySelector("#broccoli2_container")
-  .addEventListener("click", clickBroccoli2);
+  .addEventListener("mousedown", clickBroccoli2);
 document
   .querySelector("#broccoli3_container")
-  .addEventListener("click", clickBroccoli3);
+  .addEventListener("mousedown", clickBroccoli3);
 
 function add1Point() {
   console.log("add point pizza");
@@ -108,7 +108,7 @@ function clickP1a() {
   // Remove clickability on pizza
   document
     .querySelector("#pizza1a_container")
-    .removeEventListener("click", clickP1a);
+    .removeEventListener("mousedown", clickP1a);
 
   //Add paused and zoom animation
   document.querySelector("#pizza1a_container").classList.add("paused");
@@ -127,7 +127,7 @@ function clickP1b() {
   // Remove clickability on pizza
   document
     .querySelector("#pizza1b_container")
-    .removeEventListener("click", clickP1b);
+    .removeEventListener("mousedown", clickP1b);
 
   //Add paused and zoom animation
   document.querySelector("#pizza1b_container").classList.add("paused");
@@ -146,7 +146,7 @@ function clickP1c() {
   // Remove clickability on pizza
   document
     .querySelector("#pizza1c_container")
-    .removeEventListener("click", clickP1c);
+    .removeEventListener("mousedown", clickP1c);
 
   //Add paused and zoom animation
   document.querySelector("#pizza1c_container").classList.add("paused");
@@ -165,7 +165,7 @@ function clickP3a() {
   // Remove clickability on pizza
   document
     .querySelector("#pizza3a_container")
-    .removeEventListener("click", clickP3a);
+    .removeEventListener("mousedown", clickP3a);
 
   //Add paused and zoom animation
   document.querySelector("#pizza3a_container").classList.add("paused");
@@ -184,7 +184,7 @@ function clickP3b() {
   // Remove clickability on pizza
   document
     .querySelector("#pizza3b_container")
-    .removeEventListener("click", clickP3b);
+    .removeEventListener("mousedown", clickP3b);
 
   //Add paused and zoom animation
   document.querySelector("#pizza3b_container").classList.add("paused");
@@ -203,7 +203,7 @@ function clickP5() {
   // Remove clickability on pizza
   document
     .querySelector("#pizza5_container")
-    .removeEventListener("click", clickP5);
+    .removeEventListener("mousedown", clickP5);
 
   //Add paused and fly out animation
   document.querySelector("#pizza5_container").classList.add("paused");
@@ -224,7 +224,7 @@ function clickBroccoli1() {
   // Remove clickability on broccoli
   document
     .querySelector("#broccoli1_container")
-    .removeEventListener("click", clickBroccoli1);
+    .removeEventListener("mousedown", clickBroccoli1);
 
   //Add paused and deflate animation
   document.querySelector("#broccoli1_container").classList.add("paused");
@@ -243,7 +243,7 @@ function clickBroccoli2() {
   // Remove clickability on broccoli
   document
     .querySelector("#broccoli2_container")
-    .removeEventListener("click", clickBroccoli2);
+    .removeEventListener("mousedown", clickBroccoli2);
 
   //Add paused and deflate animation
   document.querySelector("#broccoli2_container").classList.add("paused");
@@ -262,7 +262,7 @@ function clickBroccoli3() {
   // Remove clickability on broccoli
   document
     .querySelector("#broccoli3_container")
-    .removeEventListener("click", clickBroccoli3);
+    .removeEventListener("mousedown", clickBroccoli3);
 
   //Add paused and deflate animation
   document.querySelector("#broccoli3_container").classList.add("paused");
@@ -298,7 +298,7 @@ function resetP1a() {
   //Makes pizza1a clickable again
   document
     .querySelector("#pizza1a_container")
-    .addEventListener("click", clickP1a);
+    .addEventListener("mousedown", clickP1a);
 }
 
 function resetP1b() {
@@ -321,7 +321,7 @@ function resetP1b() {
   //Makes pizza1a clickable again
   document
     .querySelector("#pizza1b_container")
-    .addEventListener("click", clickP1b);
+    .addEventListener("mousedown", clickP1b);
 }
 
 function resetP1c() {
@@ -344,7 +344,7 @@ function resetP1c() {
   //Makes pizza1a clickable again
   document
     .querySelector("#pizza1c_container")
-    .addEventListener("click", clickP1c);
+    .addEventListener("mousedown", clickP1c);
 }
 
 function resetP3a() {
@@ -367,7 +367,7 @@ function resetP3a() {
   //Makes pizza1a clickable again
   document
     .querySelector("#pizza3a_container")
-    .addEventListener("click", clickP3a);
+    .addEventListener("mousedown", clickP3a);
 }
 
 function resetP3b() {
@@ -390,7 +390,7 @@ function resetP3b() {
   //Makes pizza1a clickable again
   document
     .querySelector("#pizza3b_container")
-    .addEventListener("click", clickP3b);
+    .addEventListener("mousedown", clickP3b);
 }
 
 function resetP5() {
@@ -413,7 +413,7 @@ function resetP5() {
   //Makes pizza1a clickable again
   document
     .querySelector("#pizza5_container")
-    .addEventListener("click", clickP5);
+    .addEventListener("mousedown", clickP5);
 }
 
 /********************* Broccoli ************************/
@@ -444,7 +444,7 @@ function resetBroccoli1() {
   //Makes broccoli clickable again
   document
     .querySelector("#broccoli1_container")
-    .addEventListener("click", clickBroccoli1);
+    .addEventListener("mousedown", clickBroccoli1);
 }
 
 function resetBroccoli2() {
@@ -473,7 +473,7 @@ function resetBroccoli2() {
   //Makes broccoli clickable again
   document
     .querySelector("#broccoli2_container")
-    .addEventListener("click", clickBroccoli2);
+    .addEventListener("mousedown", clickBroccoli2);
 }
 
 function resetBroccoli3() {
@@ -502,7 +502,7 @@ function resetBroccoli3() {
   //Makes broccoli clickable again
   document
     .querySelector("#broccoli3_container")
-    .addEventListener("click", clickBroccoli3);
+    .addEventListener("mousedown", clickBroccoli3);
 }
 /*
 RELEVANT EVENTS 
