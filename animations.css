@@ -203,6 +203,10 @@
   }
 }
 
+.dead_turtle {
+  scale: (180deg);
+}
+
 .paused {
   animation-play-state: paused;
 }

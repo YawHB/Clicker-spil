@@ -223,3 +223,20 @@ img {
   padding-right: 6%;
   border-right: 5%;
 }
+
+.standing_turtle {
+  filter: drop-shadow(2px 10px 2px red);
+}
+
+.dead_turtle {
+  transform: rotate(180deg);
+}
+#life_board {
+  margin-block-start: 0.2em;
+  display: flex;
+  grid-template-columns: 1.2em 1.2em 1.2em;
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  width: 4%;
+}
