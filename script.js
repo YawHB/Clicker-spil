@@ -5,7 +5,7 @@ let life = 3;
 
 function start() {
   console.log("Start");
-  // Initiates the falling animation
+  // Initiates the starting animations
   document.querySelector("#pizza1a_container").classList.add("falling");
   document.querySelector("#pizza1b_container").classList.add("falling");
   document.querySelector("#pizza1c_container").classList.add("falling");
@@ -67,6 +67,9 @@ function add1Point() {
   //Adds 1 point
   points++;
   displayPoints();
+  if (points >= 20) {
+    levelComplete();
+  }
 }
 
 function add3Points() {
@@ -74,6 +77,9 @@ function add3Points() {
   //Adds 1 point
   points += 3;
   displayPoints();
+  if (points >= 20) {
+    levelComplete();
+  }
 }
 
 function add5Points() {
@@ -81,6 +87,9 @@ function add5Points() {
   //Adds 1 point
   points += 5;
   displayPoints();
+  if (points >= 20) {
+    levelComplete();
+  }
 }
 
 function displayPoints() {
@@ -104,12 +113,27 @@ function deductLife() {
   console.log("Deduct 1 life");
   displayDeductedLife();
   life--;
+  if (life <= 0) {
+    gameOver();
+  }
 }
 
 function displayDeductedLife() {
   console.log("Display deducted life");
   document.querySelector("#turtle" + life).classList.remove("standing_turtle");
   document.querySelector("#turtle" + life).classList.add("dead_turtle");
+}
+
+/******************** END OF GAME ***************************/
+
+function levelComplete() {
+  console.log("Level complete");
+  document.querySelector("#level_complete").classList.remove("hidden");
+}
+
+function gameOver() {
+  console.log("Game over");
+  document.querySelector("#game_over").classList.remove("hidden");
 }
 
 /********************* CLICK ON   ************************/
@@ -270,6 +294,9 @@ function clickBroccoli2() {
     .addEventListener("animationend", resetBroccoli2);
   penaltyPoint();
   deductLife();
+  if (life <= 0) {
+    gameOver();
+  }
 }
 
 function clickBroccoli3() {
@@ -290,6 +317,9 @@ function clickBroccoli3() {
     .addEventListener("animationend", resetBroccoli3);
   penaltyPoint();
   deductLife();
+  if (life <= 0) {
+    gameOver();
+  }
 }
 /********************* RESET Pizza/broccoli ************************/
 
