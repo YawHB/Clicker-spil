@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
+
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="animations.css" />
     <title>🐢Donatello Dinner</title>
@@ -23,65 +23,44 @@
               alt="baby turtle"
             />
           </div>
-          <div id="pizza1a_container">
+          <div id="pizza1_container">
             <img
-              id="pizza1a_sprite"
+              id="pizza1_sprite"
               src="./images/clickable_items/Pizza Happy one point.png"
               alt="Happy pizza slice"
             />
-            <img
-              id="point_1a"
-              src="./images/points/1 point.png"
-              alt="1 point"
-            />
+            <img id="point_1" src="./images/points/1 point.png" alt="1 point" />
           </div>
-          <div id="pizza1b_container">
+          <div id="pizza2_container">
             <img
-              id="pizza1b_sprite"
+              id="pizza2_sprite"
               src="./images/clickable_items/Pizza Happy one point.png"
               alt="Happy pizza slice"
             />
-            <img
-              id="point_1b"
-              src="./images/points/1 point.png"
-              alt="1 point"
-            />
+            <img id="point_1" src="./images/points/1 point.png" alt="1 point" />
           </div>
-          <div id="pizza1c_container">
+          <div id="pizza3_container">
             <img
-              id="pizza1c_sprite"
+              id="pizza3_sprite"
               src="./images/clickable_items/Pizza Happy one point.png
               "
               alt="Happy pizza slice"
             />
             <img
-              id="point_1c"
+              id="point_1"
               src="./images/points/1 point.png
             "
               alt="1 point"
             />
           </div>
-          <div id="pizza3a_container">
+          <div id="pizza4_container">
             <img
-              id="pizza3a_sprite"
+              id="pizza4_sprite"
               src="./images/clickable_items/Pizza laugh three point  copy.png"
               alt="Laughing pizza slice"
             />
             <img
-              id="points_3a"
-              src="./images/points/3 points.png"
-              alt="3 points"
-            />
-          </div>
-          <div id="pizza3b_container">
-            <img
-              id="pizza3b_sprite"
-              src="./images/clickable_items/Pizza laugh three point  copy.png
-              "
-              alt="Laughing pizza slice"
-            />
-            <img
-              id="points_3b"
+              id="points_3"
               src="./images/points/3 points.png"
               alt="3 points"
             />
@@ -89,6 +68,19 @@
           <div id="pizza5_container">
             <img
               id="pizza5_sprite"
+              src="./images/clickable_items/Pizza laugh three point  copy.png
+              "
+              alt="Laughing pizza slice"
+            />
+            <img
+              id="points_3"
+              src="./images/points/3 points.png"
+              alt="3 points"
+            />
+          </div>
+          <div id="pizza6_container">
+            <img
+              id="pizza6_sprite"
               src="./images/clickable_items/pizza 5 point.png"
               alt="Cool pizza slice with sunglasses"
             />
@@ -142,25 +134,44 @@
           </div>
           <div id="time_board">
             <img
-              id="time"
+              id="time_board_img"
               src="./images/Time board.png"
               alt=" purple time board"
             />
           </div>
         </div>
       </section>
-      <aside>
-        <div id="start" class="hidden">
-          <h2>GET READY TO EAT 🍕🤤</h2>
-        </div>
-        <div id="game_over" class="hidden">
-          <h2>GAME OVER 🪦</h2>
-        </div>
-        <div id="level_complete" class="hidden">
-          <h2>LEVEL COMPLETE 🏆</h2>
-        </div>
-      </aside>
+
+      <div id="start">
+        <h3>Welcome To</h3>
+        <h1>Donatello's Dangerous Dinner</h1>
+        <h3>Get Ready To Eat 🍕🤤</h3>
+        <p>Some text here</p>
+        <button id="btn_start" class="btn_pulse">Start</button>
+      </div>
+      <div id="game_over" class="hidden">
+        <h2 id="game_over_text">GAME OVER 🪦</h2>
+        <button id="btn_game_over" class="btn_pulse">Try again</button>
+      </div>
+      <div id="level_complete" class="hidden">
+        <h2 id="level_complete_text">LEVEL COMPLETE 🏆</h2>
+        <button id="btn_level_complete" class="btn_pulse">Back to start</button>
+      </div>
     </main>
     <script src="script.js"></script>
+    <audio id="sound_pizza1" src="./sound/sound_pizza1.mp3"></audio>
+    <audio id="sound_pizza3" src="./sound/sound_pizza3.mp3"></audio>
+    <audio id="sound_pizza5" src="./sound/sound_pizza5.mp3"></audio>
+    <audio id="sound_broccoli" src="./sound/sound_broccoli.mp3"></audio>
+    <audio
+      id="sound_level_complete"
+      src="./sound/sound_level_complete.mp3"
+    ></audio>
+    <audio id="sound_game_over" src="./sound/sound_game_over.mp3"></audio>
+    <audio
+      id="sound_background_music"
+      loop
+      src="./sound/sound_backgroundMusic.mp3"
+    ></audio>
   </body>
 </html>

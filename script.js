@@ -1,66 +1,206 @@
-window.addEventListener("load", start);
+window.addEventListener("load", ready);
 
-let points = 0;
-let life = 3;
+let points;
+let life;
 
-function start() {
-  console.log("Start");
-  // Initiates the starting animations
-  document.querySelector("#pizza1a_container").classList.add("falling");
-  document.querySelector("#pizza1b_container").classList.add("falling");
-  document.querySelector("#pizza1c_container").classList.add("falling");
-  document.querySelector("#pizza3a_container").classList.add("falling");
-  document.querySelector("#pizza3b_container").classList.add("falling");
-  document.querySelector("#pizza5_container").classList.add("falling");
+function ready() {
+  console.log("ready function");
+  document.querySelector("#btn_start").addEventListener("click", startGame);
   document
-    .querySelector("#broccoli1_container")
-    .classList.add("broccoli1_danger");
-  document.querySelector("#broccoli1_sprite").classList.add("shake");
+    .querySelector("#btn_level_complete")
+    .addEventListener("click", showStartScreen);
   document
-    .querySelector("#broccoli2_container")
-    .classList.add("broccoli2_danger");
-  document.querySelector("#broccoli2_sprite").classList.add("shake");
-
-  document
-    .querySelector("#broccoli3_container")
-    .classList.add("broccoli3_danger");
-  document.querySelector("#broccoli3_sprite").classList.add("shake");
-
-  // Makes pizza/broccoli clickable
-
-  /* Pizza */
-  document
-    .querySelector("#pizza1a_container")
-    .addEventListener("mousedown", clickP1a);
-  document
-    .querySelector("#pizza1b_container")
-    .addEventListener("mousedown", clickP1b);
-  document
-    .querySelector("#pizza1c_container")
-    .addEventListener("mousedown", clickP1c);
-  document
-    .querySelector("#pizza3a_container")
-    .addEventListener("mousedown", clickP3a);
-  document
-    .querySelector("#pizza3b_container")
-    .addEventListener("mousedown", clickP3b);
-  document
-    .querySelector("#pizza5_container")
-    .addEventListener("mousedown", clickP5);
+    .querySelector("#btn_game_over")
+    .addEventListener("click", showStartScreen);
 }
 
-/* Broccoli */
-document
-  .querySelector("#broccoli1_container")
-  .addEventListener("mousedown", clickBroccoli1);
-document
-  .querySelector("#broccoli2_container")
-  .addEventListener("mousedown", clickBroccoli2);
-document
-  .querySelector("#broccoli3_container")
-  .addEventListener("mousedown", clickBroccoli3);
+function showStartScreen() {
+  document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#");
+}
+
+function startGame() {
+  console.log("start");
+  points = 0;
+  resetLives();
+  resetPoints();
+
+  document.querySelector("#sound_background_music").play();
+  document.querySelector("#start").classList.add("hidden");
+
+  // Initiates the starting animations
+  startAnimationPizza();
+  setPositions();
+  registerClick();
+  AnimationEndReset();
+  iterationReset();
+
+  function startAnimationPizza() {
+    //Set falling on animations
+
+    document.querySelector("#pizza1_container").classList.add("falling");
+    document.querySelector("#pizza2_container").classList.add("falling");
+    document.querySelector("#pizza3_container").classList.add("falling");
+    document.querySelector("#pizza4_container").classList.add("falling");
+    document.querySelector("#pizza5_container").classList.add("falling");
+    document.querySelector("#pizza6_container").classList.add("falling");
+
+    //Set delay on animations
+    document.querySelector("#pizza1_container").classList.add("delay1");
+    document.querySelector("#pizza2_container").classList.add("delay2");
+    document.querySelector("#pizza3_container").classList.add("delay3");
+    document.querySelector("#pizza4_container").classList.add("delay4");
+    document.querySelector("#pizza5_container").classList.add("delay5");
+    document.querySelector("#pizza6_container").classList.add("delay6");
+
+    //Timer start
+    document
+      .querySelector("#time_board_img")
+      .classList.add("time_board_animation");
+    document
+      .querySelector("#time_board_img")
+      .addEventListener("animationend", timeIsUp);
+
+    //Hide points from the beginning
+    document
+      .querySelector("#pizza1_container img:nth-child(2)")
+      .classList.add("hidden");
+    document
+      .querySelector("#pizza2_container img:nth-child(2)")
+      .classList.add("hidden");
+    document
+      .querySelector("#pizza3_container img:nth-child(2)")
+      .classList.add("hidden");
+    document
+      .querySelector("#pizza4_container img:nth-child(2)")
+      .classList.add("hidden");
+    document
+      .querySelector("#pizza5_container img:nth-child(2)")
+      .classList.add("hidden");
+    document
+      .querySelector("#pizza6_container img:nth-child(2)")
+      .classList.add("hidden");
+
+    document
+      .querySelector("#broccoli1_container")
+      .classList.add("broccoli1_danger");
+    document.querySelector("#broccoli1_sprite").classList.add("shake");
+    document
+      .querySelector("#broccoli2_container")
+      .classList.add("broccoli2_danger");
+    document.querySelector("#broccoli2_sprite").classList.add("shake");
+
+    document
+      .querySelector("#broccoli3_container")
+      .classList.add("broccoli3_danger");
+    document.querySelector("#broccoli3_sprite").classList.add("shake");
+  }
+  function setPositions() {
+    document.querySelector("#pizza1_container").classList.add("position1");
+    document.querySelector("#pizza2_container").classList.add("position2");
+    document.querySelector("#pizza3_container").classList.add("position3");
+    document.querySelector("#pizza4_container").classList.add("position4");
+    document.querySelector("#pizza5_container").classList.add("position5");
+    document.querySelector("#pizza6_container").classList.add("position6");
+  }
+  function registerClick() {
+    document
+      .querySelector("#pizza1_container")
+      .addEventListener("mousedown", clickPizza1);
+    document
+      .querySelector("#pizza2_container")
+      .addEventListener("mousedown", clickPizza1);
+    document
+      .querySelector("#pizza3_container")
+      .addEventListener("mousedown", clickPizza1);
+    document
+      .querySelector("#pizza4_container")
+      .addEventListener("mousedown", clickPizza3);
+    document
+      .querySelector("#pizza5_container")
+      .addEventListener("mousedown", clickPizza3);
+    document
+      .querySelector("#pizza6_container")
+      .addEventListener("mousedown", clickPizza5);
+    document
+      .querySelector("#broccoli1_container")
+      .addEventListener("mousedown", clickBroccoli);
+    document
+      .querySelector("#broccoli2_container")
+      .addEventListener("mousedown", clickBroccoli2);
+    document
+      .querySelector("#broccoli3_container")
+      .addEventListener("mousedown", clickBroccoli3);
+  }
+  function AnimationEndReset() {
+    console.log("animation reset");
+    document
+      .querySelector("#pizza1_container")
+      .addEventListener("animationend", pizza1Restart);
+    document
+      .querySelector("#pizza2_container")
+      .addEventListener("animationend", pizza1Restart);
+    document
+      .querySelector("#pizza3_container")
+      .addEventListener("animationend", pizza1Restart);
+    // document
+    //   .querySelector("#pizza4_container")
+    //   .addEventListener("animationend", pizza3Restart);
+    // document
+    //   .querySelector("#pizza5_container")
+    //   .addEventListener("animationend", pizza3Restart);
+    // document
+    //   .querySelector("#pizza6_container")
+    //   .addEventListener("animationend", pizza5Restart);
+    document
+      .querySelector("#broccoli1_container")
+      .addEventListener("animationend", goneBroccoli);
+    document
+      .querySelector("#broccoli2_container")
+      .addEventListener("animationend", goneBroccoli2);
+    document
+      .querySelector("#broccoli3_container")
+      .addEventListener("animationend", goneBroccoli3);
+  }
+  function iterationReset() {
+    document
+      .querySelector("#pizza1_container")
+      .addEventListener("animationiteration", pizza1Restart);
+    document
+      .querySelector("#pizza2_container")
+      .addEventListener("animationiteration", pizza1Restart);
+    document
+      .querySelector("#pizza3_container")
+      .addEventListener("animationiteration", pizza1Restart);
+    document
+      .querySelector("#pizza4_container")
+      .addEventListener("animationiteration", pizza3Restart);
+    document
+      .querySelector("#pizza5_container")
+      .addEventListener("animationiteration", pizza3Restart);
+    document
+      .querySelector("#pizza6_container")
+      .addEventListener("animationiteration", pizza5Restart);
+  }
+}
 
 /***************  Points update ************* */
+function resetLives() {
+  life = 3;
+  document.querySelector("#turtle1").classList.remove("dead_turtle");
+  document.querySelector("#turtle2").classList.remove("dead_turtle");
+  document.querySelector("#turtle3").classList.remove("dead_turtle");
+  document.querySelector("#turtle1").classList.add("standing_turtle");
+  document.querySelector("#turtle2").classList.add("standing_turtle");
+  document.querySelector("#turtle3").classList.add("standing_turtle");
+}
+
+function resetPoints() {
+  points = 0;
+  displayPoints();
+}
 
 function add1Point() {
   console.log("add point pizza");
@@ -71,7 +211,6 @@ function add1Point() {
     levelComplete();
   }
 }
-
 function add3Points() {
   console.log("add 3 points pizza");
   //Adds 1 point
@@ -81,7 +220,6 @@ function add3Points() {
     levelComplete();
   }
 }
-
 function add5Points() {
   console.log("add 5 points pizza");
   //Adds 1 point
@@ -91,13 +229,11 @@ function add5Points() {
     levelComplete();
   }
 }
-
 function displayPoints() {
   console.log("display point");
   //Displays the points in the browser
   document.querySelector("#score_board").textContent = points + "😎";
 }
-
 function penaltyPoint() {
   console.log("subtract point broccoli");
   //deducts 10 point
@@ -108,7 +244,6 @@ function displayPenaltyPoints() {
   console.log("penalty");
   document.querySelector("#score_board").textContent = points + "🤡";
 }
-
 function deductLife() {
   console.log("Deduct 1 life");
   displayDeductedLife();
@@ -117,440 +252,425 @@ function deductLife() {
     gameOver();
   }
 }
-
 function displayDeductedLife() {
   console.log("Display deducted life");
   document.querySelector("#turtle" + life).classList.remove("standing_turtle");
   document.querySelector("#turtle" + life).classList.add("dead_turtle");
 }
-
 /******************** END OF GAME ***************************/
+
+function timeIsUp() {
+  if (points >= 20) {
+    levelComplete();
+  } else {
+    gameOver();
+  }
+}
 
 function levelComplete() {
   console.log("Level complete");
   document.querySelector("#level_complete").classList.remove("hidden");
-}
 
+  //Removing time animation
+  document
+    .querySelector("#time_board_img")
+    .classList.remove("time_board_animation");
+
+  // Pausing and resetting background music & adding level complete music
+
+  document.querySelector("#sound_background_music").pause();
+  document.querySelector("#sound_background_music").currentTime = 0;
+
+  document.querySelector("#sound_level_complete").play();
+  document
+    .querySelector("#btn_level_complete")
+    .addEventListener("click", showStartScreen);
+}
 function gameOver() {
   console.log("Game over");
   document.querySelector("#game_over").classList.remove("hidden");
+
+  //Removing time animation
+
+  document
+    .querySelector("#time_board_img")
+    .classList.remove("time_board_animation");
+
+  // Pausing and resseting background music & adding game over music
+
+  document.querySelector("#sound_background_music").pause();
+  document.querySelector("#sound_background_music").currentTime = 0;
+  document.querySelector("#sound_game_over").play();
 }
 
-/********************* CLICK ON   ************************/
+/********************* CLICK ON ************************/
 
 /********************* Pizza ************************/
 
-function clickP1a() {
-  console.log("Click pizza 1a");
+function clickPizza1() {
+  console.log("Click pizza 1");
+  let pizza1 = this;
 
   // Remove clickability on pizza
-  document
-    .querySelector("#pizza1a_container")
-    .removeEventListener("mousedown ", clickP1a);
+  pizza1.removeEventListener("mousedown", clickPizza1);
 
   //Add paused and zoom animation
-  document.querySelector("#pizza1a_container").classList.add("paused");
-  document.querySelector("#pizza1a_sprite").classList.add("zoom_out");
+  pizza1.classList.add("paused");
+  pizza1.querySelector("img").classList.add("zoom_out");
 
-  //When animation ends, go to resetp1a function
-  document
-    .querySelector("#pizza1a_container")
-    .addEventListener("animationend", resetP1a);
+  //When animation ends, go to pizza1Gone function
+  pizza1.addEventListener("animationend", pizza1Gone);
+  // pizza1.querySelector("#point_1").classList.remove("hidden");
   add1Point();
+  document.querySelector("#sound_pizza1").play();
+  document.querySelector("#sound_pizza1").currentTime = 0;
+
+  //Point animation activated
+  pizza1.querySelector("#point_1").classList.remove("hidden");
+  pizza1.querySelector("#point_1").classList.add("points_added");
 }
-
-function clickP1b() {
-  console.log("Click pizza 1b");
-
-  // Remove clickability on pizza
-  document
-    .querySelector("#pizza1b_container")
-    .removeEventListener("mousedown ", clickP1b);
-
-  //Add paused and zoom animation
-  document.querySelector("#pizza1b_container").classList.add("paused");
-  document.querySelector("#pizza1b_sprite").classList.add("zoom_out");
-
-  //When animation ends, go to resetp1a function
-  document
-    .querySelector("#pizza1b_container")
-    .addEventListener("animationend", resetP1b);
-  add1Point();
-}
-
-function clickP1c() {
-  console.log("Click pizza 1c");
-
-  // Remove clickability on pizza
-  document
-    .querySelector("#pizza1c_container")
-    .removeEventListener("mousedown ", clickP1c);
-
-  //Add paused and zoom animation
-  document.querySelector("#pizza1c_container").classList.add("paused");
-  document.querySelector("#pizza1c_sprite").classList.add("zoom_out");
-
-  //When animation ends, go to resetp1a function
-  document
-    .querySelector("#pizza1c_container")
-    .addEventListener("animationend", resetP1c);
-  add1Point();
-}
-
-function clickP3a() {
+function clickPizza3() {
   console.log("Click pizza 3");
+  let pizza3 = this;
 
   // Remove clickability on pizza
-  document
-    .querySelector("#pizza3a_container")
-    .removeEventListener("mousedown ", clickP3a);
+  pizza3.removeEventListener("mousedown", clickPizza3);
 
   //Add paused and zoom animation
-  document.querySelector("#pizza3a_container").classList.add("paused");
-  document.querySelector("#pizza3a_sprite").classList.add("fade");
+  pizza3.classList.add("paused");
+  pizza3.querySelector("img").classList.add("fade");
 
-  //When animation ends, go to resetp1a function
-  document
-    .querySelector("#pizza3a_container")
-    .addEventListener("animationend", resetP3a);
+  //When animation ends, go to pizza1Gone function
+  pizza3.addEventListener("animationend", pizza3Gone);
+
   add3Points();
+
+  //Adding sound effect
+  document.querySelector("#sound_pizza3").play();
+  document.querySelector("#sound_pizza3").currentTime = 0;
+
+  //Point animation activated
+  pizza3.querySelector("#points_3").classList.remove("hidden");
+  pizza3.querySelector("#points_3").classList.add("points_added");
 }
-
-function clickP3b() {
-  console.log("Click pizza 3");
-
-  // Remove clickability on pizza
-  document
-    .querySelector("#pizza3b_container")
-    .removeEventListener("mousedown ", clickP3b);
-
-  //Add paused and zoom animation
-  document.querySelector("#pizza3b_container").classList.add("paused");
-  document.querySelector("#pizza3b_sprite").classList.add("fade");
-
-  //When animation ends, go to resetp1a function
-  document
-    .querySelector("#pizza3b_container")
-    .addEventListener("animationend", resetP3b);
-  add3Points();
-}
-
-function clickP5() {
+function clickPizza5() {
   console.log("Click pizza 5");
 
   // Remove clickability on pizza
   document
-    .querySelector("#pizza5_container")
-    .removeEventListener("mousedown ", clickP5);
+    .querySelector("#pizza6_container")
+    .removeEventListener("mousedown", clickPizza5);
 
   //Add paused and fly out animation
-  document.querySelector("#pizza5_container").classList.add("paused");
-  document.querySelector("#pizza5_sprite").classList.add("fly_out");
+  document.querySelector("#pizza6_container").classList.add("paused");
+  document.querySelector("#pizza6_sprite").classList.add("fly_out");
 
-  //When animation ends, go to resetp1a function
+  //When animation ends, go to pizza1Gone function
   document
-    .querySelector("#pizza5_container")
-    .addEventListener("animationend", resetP5);
+    .querySelector("#pizza6_container")
+    .addEventListener("animationend", pizza5Gone);
+
+  //Adding sound effect
+  document.querySelector("#sound_pizza5").play();
+  document.querySelector("#sound_pizza5").currentTime = 0;
   add5Points();
 }
 
 /********************* Broccoli ************************/
 
-function clickBroccoli1() {
-  console.log("Click b1");
+function clickBroccoli() {
+  console.log("Click Broccoli");
+  let broccoli = this;
 
   // Remove clickability on broccoli
-  document
-    .querySelector("#broccoli1_container")
-    .removeEventListener("mousedown ", clickBroccoli1);
+  broccoli.removeEventListener("mousedown", clickBroccoli);
 
   //Add paused and deflate animation
-  document.querySelector("#broccoli1_container").classList.add("paused");
-  document.querySelector("#broccoli1_sprite").classList.add("deflate_broccoli");
+  broccoli.classList.add("paused");
+  broccoli.querySelector("img").classList.add("deflate_broccoli");
 
   //When animation ends, go to reset function
-  document
-    .querySelector("#broccoli1_container")
-    .addEventListener("animationend", resetBroccoli1);
+  broccoli.addEventListener("animationend", goneBroccoli);
+
+  //Adding sound effect
+  document.querySelector("#sound_broccoli").play();
+  document.querySelector("#sound_broccoli").currentTime = 0;
   penaltyPoint();
   deductLife();
 }
-
 function clickBroccoli2() {
   console.log("Click b2");
+  let broccoli = this;
 
   // Remove clickability on broccoli
-  document
-    .querySelector("#broccoli2_container")
-    .removeEventListener("mousedown ", clickBroccoli2);
+  broccoli.removeEventListener("mousedown", clickBroccoli2);
 
   //Add paused and deflate animation
-  document.querySelector("#broccoli2_container").classList.add("paused");
-  document.querySelector("#broccoli2_sprite").classList.add("deflate_broccoli");
+  broccoli.classList.add("paused");
+  broccoli.querySelector("img").classList.add("deflate_broccoli");
 
   //When animation ends, go to reset function
-  document
-    .querySelector("#broccoli2_container")
-    .addEventListener("animationend", resetBroccoli2);
+
+  //Adding sound effect
+  document.querySelector("#sound_broccoli").play();
+  document.querySelector("#sound_broccoli").currentTime = 0;
+
   penaltyPoint();
   deductLife();
-  if (life <= 0) {
-    gameOver();
-  }
+  broccoli.addEventListener("animationend", goneBroccoli2);
 }
-
 function clickBroccoli3() {
-  console.log("Click b3");
+  console.log("Click broccoli 3");
+  let broccoli = this;
 
   // Remove clickability on broccoli
-  document
-    .querySelector("#broccoli3_container")
-    .removeEventListener("mousedown ", clickBroccoli3);
+  broccoli.removeEventListener("mousedown", clickBroccoli3);
 
   //Add paused and deflate animation
-  document.querySelector("#broccoli3_container").classList.add("paused");
-  document.querySelector("#broccoli3_sprite").classList.add("deflate_broccoli");
+  broccoli.classList.add("paused");
+  broccoli.querySelector("img").classList.add("deflate_broccoli");
+
+  //Adding sound effect
+  document.querySelector("#sound_broccoli").play();
+  document.querySelector("#sound_broccoli").currentTime = 0;
 
   //When animation ends, go to reset function
-  document
-    .querySelector("#broccoli3_container")
-    .addEventListener("animationend", resetBroccoli3);
   penaltyPoint();
   deductLife();
-  if (life <= 0) {
-    gameOver();
-  }
+  broccoli.addEventListener("animationend", goneBroccoli3);
 }
-/********************* RESET Pizza/broccoli ************************/
+
+/********************* GONE + RESTART ************************/
 
 /********************* Pizza ************************/
 
-function resetP1a() {
-  console.log("Reset p1a");
+function pizza1Gone() {
+  console.log("Pizza 1 Gone");
+  let pizza1 = this;
 
   // Removes the animation that got us here
-  document
-    .querySelector("#pizza1a_container")
-    .removeEventListener("animationend", resetP1a);
+  pizza1.removeEventListener("animationend", pizza1Gone);
 
   //Removes paused and zoom animation
-  document.querySelector("#pizza1a_container").classList.remove("paused");
-  document.querySelector("#pizza1a_sprite").classList.remove("zoom_out");
+  pizza1.classList.remove("paused");
+  pizza1.querySelector("img").classList.remove("zoom_out");
 
   //Resets falling animation from the top
-  document.querySelector("#pizza1a_container").classList.remove("falling");
-  document.querySelector("#pizza1a_container").offsetWidth;
-  document.querySelector("#pizza1a_container").classList.add("falling");
+  pizza1Restart.call(this);
+  //Makes pizza1 clickable again
 
-  //Makes pizza1a clickable again
-  document
-    .querySelector("#pizza1a_container")
-    .addEventListener("mousedown ", clickP1a);
+  pizza1.addEventListener("mousedown", clickPizza1);
 }
 
-function resetP1b() {
-  console.log("Reset p1b");
+function pizza1Restart() {
+  console.log("pizza 1 restart");
+  let pizza1 = this;
+
+  //Set pizza to falling again
+  pizza1.classList.remove("falling");
+  pizza1.offsetWidth;
+  pizza1.classList.add("falling");
+  pizza1.querySelector("#point_1").classList.add("hidden");
+
+  pizza1.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5",
+    "position6",
+    "position7",
+    "position8",
+    "position9",
+    "position10",
+    "delay1",
+    "delay2",
+    "delay3",
+    "delay4",
+    "delay5",
+    "delay6"
+  );
+
+  let pos = Math.trunc(Math.random() * 10) + 1;
+  pizza1.classList.add("position" + pos);
+
+  let del = Math.trunc(Math.random() * 6) + 1;
+  pizza1.classList.add("delay" + del);
+}
+
+function pizza3Gone() {
+  console.log("pizza 3 gone");
+  let pizza3 = this;
 
   // Removes the animation that got us here
-  document
-    .querySelector("#pizza1b_container")
-    .removeEventListener("animationend", resetP1b);
+  pizza3.removeEventListener("animationend", pizza3Gone);
 
   //Removes paused and zoom animation
-  document.querySelector("#pizza1b_container").classList.remove("paused");
-  document.querySelector("#pizza1b_sprite").classList.remove("zoom_out");
+  pizza3.classList.remove("paused");
+  pizza3.querySelector("img").classList.remove("fade");
 
   //Resets falling animation from the top
-  document.querySelector("#pizza1b_container").classList.remove("falling");
-  document.querySelector("#pizza1b_container").offsetWidth;
-  document.querySelector("#pizza1b_container").classList.add("falling");
-
-  //Makes pizza1a clickable again
-  document
-    .querySelector("#pizza1b_container")
-    .addEventListener("mousedown ", clickP1b);
+  pizza3Restart.call(this);
+  //Makes pizza1 clickable again
+  pizza3.addEventListener("mousedown", clickPizza3);
 }
 
-function resetP1c() {
-  console.log("Reset p1c");
+function pizza3Restart() {
+  console.log("restart");
+  let pizza3 = this;
+  pizza3.classList.remove("falling");
+  pizza3.offsetWidth;
+  pizza3.classList.add("falling");
 
-  // Removes the animation that got us here
-  document
-    .querySelector("#pizza1c_container")
-    .removeEventListener("animationend", resetP1c);
+  pizza3.querySelector("#points_3").classList.add("hidden");
+  pizza3.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5",
+    "position6",
+    "position7",
+    "position8",
+    "position9",
+    "position10",
+    "delay1",
+    "delay2",
+    "delay3",
+    "delay4",
+    "delay5",
+    "delay6"
+  );
 
-  //Removes paused and zoom animation
-  document.querySelector("#pizza1c_container").classList.remove("paused");
-  document.querySelector("#pizza1c_sprite").classList.remove("zoom_out");
+  let pos = Math.trunc(Math.random() * 10) + 1;
+  pizza3.classList.add("position" + pos);
 
-  //Resets falling animation from the top
-  document.querySelector("#pizza1c_container").classList.remove("falling");
-  document.querySelector("#pizza1c_container").offsetWidth;
-  document.querySelector("#pizza1c_container").classList.add("falling");
+  let del = Math.trunc(Math.random() * 6) + 1;
+  pizza3.classList.add("delay" + del);
 
-  //Makes pizza1a clickable again
-  document
-    .querySelector("#pizza1c_container")
-    .addEventListener("mousedown ", clickP1c);
+  // Hides pizza points on iteration
 }
 
-function resetP3a() {
-  console.log("Reset p3a");
-
-  // Removes the animation that got us here
-  document
-    .querySelector("#pizza3a_container")
-    .removeEventListener("animationend", resetP3a);
-
-  //Removes paused and zoom animation
-  document.querySelector("#pizza3a_container").classList.remove("paused");
-  document.querySelector("#pizza3a_sprite").classList.remove("fade");
-
-  //Resets falling animation from the top
-  document.querySelector("#pizza3a_container").classList.remove("falling");
-  document.querySelector("#pizza3a_container").offsetWidth;
-  document.querySelector("#pizza3a_container").classList.add("falling");
-
-  //Makes pizza1a clickable again
-  document
-    .querySelector("#pizza3a_container")
-    .addEventListener("mousedown ", clickP3a);
-}
-
-function resetP3b() {
-  console.log("Reset p3b");
-
-  // Removes the animation that got us here
-  document
-    .querySelector("#pizza3b_container")
-    .removeEventListener("animationend", resetP3b);
-
-  //Removes paused and zoom animation
-  document.querySelector("#pizza3b_container").classList.remove("paused");
-  document.querySelector("#pizza3b_sprite").classList.remove("fade");
-
-  //Resets falling animation from the top
-  document.querySelector("#pizza3b_container").classList.remove("falling");
-  document.querySelector("#pizza3b_container").offsetWidth;
-  document.querySelector("#pizza3b_container").classList.add("falling");
-
-  //Makes pizza1a clickable again
-  document
-    .querySelector("#pizza3b_container")
-    .addEventListener("mousedown ", clickP3b);
-}
-
-function resetP5() {
+function pizza5Gone() {
   console.log("Reset p5");
 
   // Removes the animation that got us here
   document
-    .querySelector("#pizza5_container")
-    .removeEventListener("animationend", resetP5);
+    .querySelector("#pizza6_container")
+    .removeEventListener("animationend", pizza5Gone);
 
   //Removes paused and zoom animation
-  document.querySelector("#pizza5_container").classList.remove("paused");
-  document.querySelector("#pizza5_sprite").classList.remove("fly_out");
+  document.querySelector("#pizza6_container").classList.remove("paused");
+  document.querySelector("#pizza6_sprite").classList.remove("fly_out");
 
   //Resets falling animation from the top
-  document.querySelector("#pizza5_container").classList.remove("falling");
-  document.querySelector("#pizza5_container").offsetWidth;
-  document.querySelector("#pizza5_container").classList.add("falling");
-
-  //Makes pizza1a clickable again
+  pizza5Restart.call(this);
+  //Makes pizza1 clickable again
   document
-    .querySelector("#pizza5_container")
-    .addEventListener("mousedown ", clickP5);
+    .querySelector("#pizza6_container")
+    .addEventListener("mousedown", clickPizza5);
+}
+
+function pizza5Restart() {
+  document.querySelector("#pizza6_container").classList.remove("falling");
+  document.querySelector("#pizza6_container").offsetWidth;
+  document.querySelector("#pizza6_container").classList.add("falling");
+
+  document
+    .querySelector("#pizza6_container")
+    .classList.remove(
+      "position1",
+      "position2",
+      "position3",
+      "position4",
+      "position5",
+      "position6",
+      "position7",
+      "position8",
+      "position9",
+      "position10",
+      "delay1",
+      "delay2",
+      "delay3",
+      "delay4",
+      "delay5",
+      "delay6",
+      "delay7",
+      "delay8",
+      "delay9",
+      "delay10"
+    );
+
+  let pos = Math.trunc(Math.random() * 10) + 1;
+  document.querySelector("#pizza6_container").classList.add("position" + pos);
+
+  let del = Math.trunc(Math.random() * 6) + 1;
+  document.querySelector("#pizza6_container").classList.add("delay" + del);
 }
 
 /********************* Broccoli ************************/
 
-function resetBroccoli1() {
-  console.log("Reset broccoli1");
+function goneBroccoli() {
+  console.log(" HEj Gone broccoli");
+  let broccoli = this;
 
   // Removes the animation that got us here
-  document
-    .querySelector("#broccoli1_container")
-    .removeEventListener("animationend", resetBroccoli1);
+  broccoli.removeEventListener("animationend", goneBroccoli);
 
   //Removes paused and deflate animation
-  document.querySelector("#broccoli1_container").classList.remove("paused");
-  document
-    .querySelector("#broccoli1_sprite")
-    .classList.remove("deflate_broccoli");
+  broccoli.classList.remove("paused");
+  broccoli.querySelector("img").classList.remove("deflate_broccoli");
 
   //Resets falling animation from the top
-  document
-    .querySelector("#broccoli1_container")
-    .classList.remove("broccoli1_danger");
-  document.querySelector("#broccoli1_container").offsetWidth;
-  document
-    .querySelector("#broccoli1_container")
-    .classList.add("broccoli1_danger");
+  broccoli.classList.remove("broccoli1_danger");
+  broccoli.offsetWidth;
+  broccoli.classList.add("broccoli1_danger");
 
   //Makes broccoli clickable again
-  document
-    .querySelector("#broccoli1_container")
-    .addEventListener("mousedown ", clickBroccoli1);
+
+  broccoli.addEventListener("mousedown", clickBroccoli);
 }
 
-function resetBroccoli2() {
-  console.log("Reset broccoli2");
+function goneBroccoli2() {
+  console.log("gone broccoli2");
+  let broccoli = this;
 
   // Removes the animation that got us here
-  document
-    .querySelector("#broccoli2_container")
-    .removeEventListener("animationend", resetBroccoli2);
+  broccoli.removeEventListener("animationend", goneBroccoli2);
 
   //Removes paused and deflate animation
-  document.querySelector("#broccoli2_container").classList.remove("paused");
-  document
-    .querySelector("#broccoli2_sprite")
-    .classList.remove("deflate_broccoli");
+  broccoli.classList.remove("paused");
+  broccoli.querySelector("img").classList.remove("deflate_broccoli");
 
   //Resets falling animation from the top
-  document
-    .querySelector("#broccoli2_container")
-    .classList.remove("broccoli2_danger");
-  document.querySelector("#broccoli2_container").offsetWidth;
-  document
-    .querySelector("#broccoli2_container")
-    .classList.add("broccoli2_danger");
+  broccoli.classList.remove("broccoli2_danger");
+  broccoli.offsetWidth;
+  broccoli.classList.add("broccoli2_danger");
 
   //Makes broccoli clickable again
-  document
-    .querySelector("#broccoli2_container")
-    .addEventListener("mousedown ", clickBroccoli2);
+  broccoli.addEventListener("mousedown", clickBroccoli2);
 }
 
-function resetBroccoli3() {
-  console.log("Reset broccoli3");
+function goneBroccoli3() {
+  console.log("gone broccoli 3");
+  let broccoli = this;
 
   // Removes the animation that got us here
-  document
-    .querySelector("#broccoli3_container")
-    .removeEventListener("animationend", resetBroccoli3);
+  broccoli.removeEventListener("animationend", goneBroccoli3);
 
   //Removes paused and deflate animation
-  document.querySelector("#broccoli3_container").classList.remove("paused");
-  document
-    .querySelector("#broccoli3_sprite")
-    .classList.remove("deflate_broccoli");
+  broccoli.classList.remove("paused");
+  broccoli.querySelector("img").classList.remove("deflate_broccoli");
 
   //Resets falling animation from the top
-  document
-    .querySelector("#broccoli3_container")
-    .classList.remove("broccoli3_danger");
-  document.querySelector("#broccoli3_container").offsetWidth;
-  document
-    .querySelector("#broccoli3_container")
-    .classList.add("broccoli3_danger");
+  broccoli.classList.remove("broccoli3_danger");
+  broccoli.offsetWidth;
+  broccoli.classList.add("broccoli3_danger");
 
   //Makes broccoli clickable again
-  document
-    .querySelector("#broccoli3_container")
-    .addEventListener("mousedown ", clickBroccoli3);
+  broccoli.addEventListener("mousedown", clickBroccoli3);
 }
-/*
-RELEVANT EVENTS 
-click, animationend, animationiteration, dbclick, mousedown, contentmenu */
+
+//RELEVANT EVENTS
+//click, animationend, animationiteration, dbclick, mousedown, contentmenu
+// add3Points.call(pos)
