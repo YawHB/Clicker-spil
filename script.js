@@ -374,6 +374,9 @@ function clickPizza5() {
   document.querySelector("#sound_pizza5").play();
   document.querySelector("#sound_pizza5").currentTime = 0;
   add5Points();
+
+  document.querySelector("#points_5").classList.remove("hidden");
+  document.querySelector("#points_5").classList.add("points_added");
 }
 
 /********************* Broccoli ************************/
@@ -575,6 +578,8 @@ function pizza5Restart() {
   document.querySelector("#pizza6_container").classList.remove("falling");
   document.querySelector("#pizza6_container").offsetWidth;
   document.querySelector("#pizza6_container").classList.add("falling");
+
+  document.querySelector("#points_5").classList.add("hidden");
 
   document
     .querySelector("#pizza6_container")

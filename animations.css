@@ -197,9 +197,11 @@
 @keyframes points_added {
   0% {
     transfrom: scale(1);
+    opacity: 100;
   }
   100% {
     transform: scale(10);
+    opacity: 0;
   }
 }
 
