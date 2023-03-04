@@ -18,7 +18,6 @@ function showStartScreen() {
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#start").classList.remove("hidden");
-  document.querySelector("#");
 }
 
 function startGame() {
@@ -27,7 +26,7 @@ function startGame() {
   resetLives();
   resetPoints();
 
-  document.querySelector("#sound_background_music").play();
+  // document.querySelector("#sound_background_music").play();
   document.querySelector("#start").classList.add("hidden");
 
   // Initiates the starting animations
@@ -232,7 +231,7 @@ function add5Points() {
 function displayPoints() {
   console.log("display point");
   //Displays the points in the browser
-  document.querySelector("#score_board").textContent = points + "😎";
+  document.querySelector("#middle").textContent = points;
 }
 function penaltyPoint() {
   console.log("subtract point broccoli");
@@ -242,7 +241,7 @@ function penaltyPoint() {
 }
 function displayPenaltyPoints() {
   console.log("penalty");
-  document.querySelector("#score_board").textContent = points + "🤡";
+  document.querySelector("#middle").textContent = points;
 }
 function deductLife() {
   console.log("Deduct 1 life");
