@@ -7,6 +7,9 @@ function ready() {
   console.log("ready function");
   document.querySelector("#btn_start").addEventListener("click", startGame);
   document
+    .querySelector("#btn_instructions")
+    .addEventListener("click", howToPlay);
+  document
     .querySelector("#btn_level_complete")
     .addEventListener("click", showStartScreen);
   document
@@ -15,9 +18,19 @@ function ready() {
 }
 
 function showStartScreen() {
+  ("Show start screen");
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#instructions_page").classList.add("hidden");
   document.querySelector("#start").classList.remove("hidden");
+}
+function howToPlay() {
+  console.log("how to play");
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#instructions_page").classList.remove("hidden");
+  document
+    .querySelector("#instructions_page")
+    .addEventListener("click", showStartScreen);
 }
 
 function startGame() {
@@ -26,7 +39,7 @@ function startGame() {
   resetLives();
   resetPoints();
 
-  // document.querySelector("#sound_background_music").play();
+  document.querySelector("#sound_background_music").play();
   document.querySelector("#start").classList.add("hidden");
 
   // Initiates the starting animations
@@ -144,15 +157,15 @@ function startGame() {
     document
       .querySelector("#pizza3_container")
       .addEventListener("animationend", pizza1Restart);
-    // document
-    //   .querySelector("#pizza4_container")
-    //   .addEventListener("animationend", pizza3Restart);
-    // document
-    //   .querySelector("#pizza5_container")
-    //   .addEventListener("animationend", pizza3Restart);
-    // document
-    //   .querySelector("#pizza6_container")
-    //   .addEventListener("animationend", pizza5Restart);
+    document
+      .querySelector("#pizza4_container")
+      .addEventListener("animationend", pizza3Restart);
+    document
+      .querySelector("#pizza5_container")
+      .addEventListener("animationend", pizza3Restart);
+    document
+      .querySelector("#pizza6_container")
+      .addEventListener("animationend", pizza5Restart);
     document
       .querySelector("#broccoli1_container")
       .addEventListener("animationend", goneBroccoli);
