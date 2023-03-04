@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="animations.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>🐢Donatello Dinner</title>
   </head>
 
@@ -147,18 +148,20 @@
       </section>
 
       <div id="start">
-        <h3>Welcome To</h3>
-        <h1>Donatello's Dangerous Dinner</h1>
-        <h3>Get Ready To Eat 🍕🤤</h3>
-        <p>Some text here</p>
-        <button id="btn_start" class="btn_pulse">Start</button>
+        <div id="welcome" class="start_page">Welcome To</div>
+        <div id="ddd" class="start_page">Donatello's Dangerous Dinner</div>
+        <div id="eat" class="start_page">Get Ready To Eat 🍕🤤</div>
+        <button id="btn_start" class="btn_pulse start_page">Start</button>
+        <button id="btn_instructions" class="btn_pulse start_page">
+          How to play
+        </button>
       </div>
       <div id="game_over" class="hidden">
-        <h2 id="game_over_text">GAME OVER 🪦</h2>
+        <h2 id="game_over_text">GAME OVER</h2>
         <button id="btn_game_over" class="btn_pulse">Try again</button>
       </div>
       <div id="level_complete" class="hidden">
-        <h2 id="level_complete_text">LEVEL COMPLETE 🏆</h2>
+        <h2 id="level_complete_text">LEVEL COMPLETE</h2>
         <button id="btn_level_complete" class="btn_pulse">Back to start</button>
       </div>
     </main>
