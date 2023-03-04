@@ -21,13 +21,15 @@ function showStartScreen() {
   ("Show start screen");
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#instructions_page").classList.add("hidden");
   document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#instructions_page").classList.add("hidden");
 }
+
 function howToPlay() {
   console.log("how to play");
-  document.querySelector("#start").classList.add("hidden");
   document.querySelector("#instructions_page").classList.remove("hidden");
+  document.querySelector("#instructions_page").classList.add("pages_fade_in");
+
   document
     .querySelector("#instructions_page")
     .addEventListener("click", showStartScreen);
@@ -282,6 +284,7 @@ function timeIsUp() {
 function levelComplete() {
   console.log("Level complete");
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.add("pages_fade_in");
 
   //Removing time animation
   document
@@ -293,14 +296,22 @@ function levelComplete() {
   document.querySelector("#sound_background_music").pause();
   document.querySelector("#sound_background_music").currentTime = 0;
 
-  document.querySelector("#sound_level_complete").play();
+  document
+    .querySelector("#level_complete")
+    .addEventListener("animationend", levelCompleteSound);
+
   document
     .querySelector("#btn_level_complete")
     .addEventListener("click", showStartScreen);
 }
+
+function levelCompleteSound() {
+  document.querySelector("#sound_level_complete").play();
+}
 function gameOver() {
   console.log("Game over");
   document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("pages_zoom_in");
 
   //Removing time animation
 
@@ -309,9 +320,13 @@ function gameOver() {
     .classList.remove("time_board_animation");
 
   // Pausing and resseting background music & adding game over music
-
   document.querySelector("#sound_background_music").pause();
   document.querySelector("#sound_background_music").currentTime = 0;
+  document
+    .querySelector("#game_over")
+    .addEventListener("animationend", gameOverSound);
+}
+function gameOverSound() {
   document.querySelector("#sound_game_over").play();
 }
 
