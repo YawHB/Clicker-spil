@@ -280,7 +280,7 @@ function timeIsUp() {
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
-  document.querySelector("#level_complete").classList.add("pages_fade_in");
+  document.querySelector("#level_complete").classList.add("pages_zoom_in");
   stopGame();
 
   //Removing time animation

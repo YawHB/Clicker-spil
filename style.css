@@ -83,7 +83,7 @@ button:hover {
 #turtle_container {
   width: 12%;
   position: relative;
-  top: -105%;
+  top: -150%;
   left: 85%;
 }
 #turtle_sprite {
@@ -279,6 +279,15 @@ button:hover {
 
 /*///////////////// GUI /////////////////*/
 
+/* #game-ui {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  background-color: #9ad42586;
+  top: -50%;
+  right: 10%;
+  scale: 50;
+} */
 #time_board {
   width: 25%;
   position: relative;

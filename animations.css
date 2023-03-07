@@ -2,7 +2,7 @@
 
 .falling {
   animation: falling;
-  animation-duration: 3s;
+  animation-duration: 3.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
@@ -242,7 +242,7 @@
 
 .time_board_animation {
   animation-name: time_board_animation;
-  animation-duration: 2000s;
+  animation-duration: 30s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
